@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "733759856872",
+    "project_id": "abhinav-farmers-club",
+    "storage_bucket": "abhinav-farmers-club.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:733759856872:android:515c0357e63806d11c695d",
+        "android_client_info": {
+          "package_name": "com.abhinav.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "733759856872-i4jd6r0a9osojh0bt299qe771hq7574e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoal0lpQorC-vXCaf3PblWM1DIdRyPlCE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "733759856872-i4jd6r0a9osojh0bt299qe771hq7574e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
