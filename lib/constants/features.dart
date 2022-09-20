@@ -70,7 +70,7 @@ class Features {
   static bool ismultivendor = false;
   static bool view_all = false;
 
-  static bool isRateOrderProduct = true;
+  static bool isRateOrderProduct = false;
   static bool istestimonial = true;
   static bool isreview_filter = false;
   static bool issignintruecaller = false;

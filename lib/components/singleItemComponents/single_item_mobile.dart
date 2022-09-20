@@ -913,9 +913,7 @@ class _SingleItemMobileComponentState extends State<SingleItemMobileComponent> w
                                   snapshot.data!.label!,
                                   style: TextStyle(
                                       fontSize: 18,
-                                      color: Theme
-                                          .of(context)
-                                          .primaryColor,
+                                      color: ColorCodes.primaryColor,
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),

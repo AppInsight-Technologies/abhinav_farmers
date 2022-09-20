@@ -902,7 +902,7 @@ class _MultipleImagePickerState extends State<MultipleImagePicker> with Navigati
                   + IConstants.APP_NAME+
                   S .of(context).call_further_details,
               // " To Call You For Further Details?",
-              style: TextStyle(/*fontWeight: FontWeight.bold, fontSize: 16,*/color: Theme.of(context).primaryColor),
+              style: TextStyle(/*fontWeight: FontWeight.bold, fontSize: 16,*/color: ColorCodes.black),
             ),
           ),
           SizedBox(width:10),
@@ -1200,7 +1200,7 @@ class _MultipleImagePickerState extends State<MultipleImagePicker> with Navigati
           height: 50.0,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
-            color: Theme.of(context).primaryColor,
+            color: ColorCodes.primaryColor,
           ),
 
           child: Center(child: Text(S .of(context).save_changes

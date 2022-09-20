@@ -285,18 +285,18 @@ class _MyorderScreenState extends State<MyorderScreen> with Navigations{
             width: 120.0,
             height: 40.0,
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: ColorCodes.primaryColor,
                 borderRadius: BorderRadius.circular(3.0),
                 border: Border(
                   top: BorderSide(
-                      width: 1.0, color: Theme.of(context).primaryColor),
+                      width: 1.0, color: ColorCodes.primaryColor),
                   bottom: BorderSide(
-                      width: 1.0, color: Theme.of(context).primaryColor),
+                      width: 1.0, color: ColorCodes.primaryColor),
                   left: BorderSide(
-                      width: 1.0, color: Theme.of(context).primaryColor),
+                      width: 1.0, color: ColorCodes.primaryColor),
                   right: BorderSide(
                     width: 1.0,
-                    color: Theme.of(context).primaryColor,
+                    color: ColorCodes.primaryColor,
                   ),
                 )),
             child: Center(

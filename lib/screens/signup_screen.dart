@@ -762,7 +762,7 @@ debugPrint("add primary...."+{
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: Theme.of(context).primaryColor
+                color: ColorCodes.primaryColor
             ),
             child: Center(
               child: Text(
