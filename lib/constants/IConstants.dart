@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class IConstants {
   static String BaseDomain =
-      /*"https://login.purityprayag.com";*/"https://sandbox.grocbay.com";/*"https://sandbox.grocbay.com";*/
+      /*"https://login.purityprayag.com";*/"https://login.abhinavfarmersclub.org";/*"https://sandbox.grocbay.com";*/
   static String API_PATH = "$BaseDomain/api/app-manager/get-functionality/";
   static String API_IMAGE = "$BaseDomain/uploads/";
   static String AppDomain = "https://web.grocbay.com";
@@ -12,7 +12,7 @@ class IConstants {
   // static String API_PATH = "https://franchise.tokree.co.in/api/app-manager/get-functionality/";
   // static String API_IMAGE = "https://franchise.tokree.co.in/uploads/";
 
-  static String APP_NAME = "Abhinav Farmers Club";
+  static String APP_NAME = "Abhinav Kart";
   static String API_PAYTM = "https://cashfree.grocbay.com/";
 
   static String androidId = "" /* = com.abhinav.store"*/;

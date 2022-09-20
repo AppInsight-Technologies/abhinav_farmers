@@ -10709,9 +10709,8 @@ if(_initialloading)
                                             )
                                         )),
 
-                                    if(Features.isMembership)
-                                      ((snapshot.where((element) => element.mode! == "1").count() >= 1 ) && snapshot.length == 1)?
-                                      SizedBox.shrink():
+                                    (Features.isMembership &&((snapshot.where((element) => element.mode! == "1").count() >= 1 ) && snapshot.length == 1))?
+                                    SizedBox.shrink():
                                       GestureDetector(
                                           onTap:(){
                                             setState(() {
@@ -12521,21 +12520,21 @@ if(_cartitemloaded&&_cartdugestloaded){
                     padding: EdgeInsets.all(5),
                     height: 40.0,
                     decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                        color: ColorCodes.primaryColor,
                         borderRadius: BorderRadius.circular(3.0),
                         border: Border(
                           top: BorderSide(
                               width: 1.0,
-                              color: Theme.of(context).primaryColor),
+                              color: ColorCodes.primaryColor),
                           bottom: BorderSide(
                               width: 1.0,
-                              color: Theme.of(context).primaryColor),
+                              color: ColorCodes.primaryColor),
                           left: BorderSide(
                               width: 1.0,
-                              color: Theme.of(context).primaryColor),
+                              color: ColorCodes.primaryColor),
                           right: BorderSide(
                             width: 1.0,
-                            color: Theme.of(context).primaryColor,
+                            color: ColorCodes.primaryColor,
                           ),
                         )),
                     child: Center(

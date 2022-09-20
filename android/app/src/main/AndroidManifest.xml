@@ -22,7 +22,7 @@
     <application
 
         android:name="${applicationName}"
-        android:label="Abhinav Farmers Club"
+        android:label="Abhinav Kart"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher">
 
