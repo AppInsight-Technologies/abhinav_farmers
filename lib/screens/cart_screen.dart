@@ -8756,627 +8756,627 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                 // padding: EdgeInsets.only(left: 10.0, top: 10.0, ),
                 child: Column(
                   children: <Widget>[
-                    !_isChangeAddress
-                        ? _checkaddress
-                        ? Column(
-                          children: [
-                            if(!Features.ismultivendor)
-                            Container(
-                              decoration: BoxDecoration(
-                                color: ColorCodes.whiteColor,
-                                borderRadius: BorderRadius.circular(5)),
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 15, horizontal: 15),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              S .of(context).select_delivery_address,//"Select delivery address",
-                                              style: TextStyle(
-                                                  fontWeight: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? FontWeight.w900 : FontWeight.bold,
-                                                  fontSize: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? 18 : 16.0,
-                                                  color: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? ColorCodes.blackColor : ColorCodes.cartgreenColor),
-                                            ),
-                                            SizedBox(
-                                              height: 10.0,
-                                            ),
-                                            Column(
-                                              children: [
-
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    (addtype == "home")? Image.asset(Images.homeConfirm,
-                                                      height: 22,
-                                                      width: 22,
-                                                      color: ColorCodes.blackColor,
-                                                    ):(addtype == "Work")?Image.asset(Images.workConfirm,
-                                                      height: 22,
-                                                      width: 22,
-                                                      color: ColorCodes.blackColor,
-                                                    ):Image.asset(Images.otherConfirm,
-                                                      height: 25,
-                                                      width: 25,
-                                                      color: ColorCodes.blackColor,
-                                                    ),
-                                                    SizedBox(width: 10,),
-                                                    Text(
-                                                      name,
-                                                      style: TextStyle(
-                                                        color: ColorCodes.blackColor,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 15.0,
-                                                      ),
-                                                    ),
-                                                    Spacer(),
-                                                    GestureDetector(
-                                                        behavior: HitTestBehavior.translucent,
-                                                        onTap: () {
-                                                          _settingModalBottomSheet(context, "change");
-                                                        },
-                                                        child: Container(
-
-                                                          child: Text(
-                                                            S .of(context).change_caps,//"CHANGE",
-                                                            style: TextStyle(
-                                                              //decoration: TextDecoration.underline,
-                                                                decorationStyle:
-                                                                TextDecorationStyle.dashed,
-                                                                fontWeight: FontWeight.bold,
-                                                                color: ColorCodes.blackColor,
-                                                                fontSize: 15.0),
-                                                          ),
-                                                        )),
-                                                    SizedBox(
-                                                      width: 10.0,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5,),
-                                            Container(
-                                            height: 40,
-                                              child: Row(
-                                                children: [
-                                                  SizedBox(width: 40,),
-                                                  Flexible(
-
-                                                    child: Text(
-                                                      address,
-                                                      maxLines: 2,
-                                                      style: TextStyle(
-                                                        letterSpacing: 1,
-                                                        color: Colors.grey,
-                                                        fontSize: 14.0,
-                                                      ),
-                                                    ),
-                                                  ),
-
-                                                  SizedBox(
-                                                    width: 60.0,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-
-                                    ],
-                                  ),
-                                  ((double.parse(_minimumOrderAmountNoraml) > CartCalculations.total) && (double.parse(_minimumOrderAmountPrime) > CartCalculations.totalMember)) ?
-                                  SizedBox(height: 83,) : SizedBox(height: 43,),
-                                  ListTile(
-                                    dense:true,
-                                    contentPadding: EdgeInsets.only(left: 10.0),
-                                    leading: Image.asset(Images.request,
-                                      height: 30,
-                                      width: 30,
-                                        color: ColorCodes.blackColor,
-                                    ),
-                                    title: Transform(
-                                      transform: Matrix4.translationValues(-16, 0.0, 0.0),
-                                      child: TextField(
-                                        controller: _message,
-                                        decoration: InputDecoration.collapsed(
-                                            hintText: !Features.ismultivendor?S .of(context).any_request:S.of(context).any_instruct_multivendor,//"Any request? We promise to pass it on",
-                                            hintStyle: TextStyle(fontSize: 15.0, color: ColorCodes.blackColor, fontWeight: FontWeight.bold , letterSpacing: 1,),
-                                            //contentPadding: EdgeInsets.all(16),
-                                            //border: OutlineInputBorder(),
-                                            fillColor: ColorCodes.lightGreyColor),
-                                        //minLines: 3,
-                                        maxLines: 1,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            if(Features.ismultivendor)
-                            SizedBox(
-                              height:10,
-                            ),
-                            if(Features.ismultivendor)
-                              paymentDetails(),
-                            if(Features.ismultivendor)
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: ColorCodes.whiteColor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: ColorCodes.grey.withOpacity(0.3),
-                                        spreadRadius: 4,
-                                        blurRadius: 5,
-                                        offset: Offset(0, 3),
-                                      )
-                                    ]
-                                ),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                child: Row(
-                                  children: <Widget>[
-                                    if(Features.ismultivendor)
-                                      Image.asset(Images.addressmultivendor,
-                                        height: 35,
-                                        width: 30,
-                                        color: ColorCodes.greenColor,
-                                      ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-
-                                          Row(
-                                            children: [
-
-                                              if(!Features.ismultivendor)
-                                              (addtype == "home")? Image.asset(Images.homeConfirm,
-                                                height: 30,
-                                                width: 30,
-                                                color: ColorCodes.blackColor,
-                                              ):(addtype == "Work")?Image.asset(Images.workConfirm,
-                                                height: 30,
-                                                width: 30,
-                                                color: ColorCodes.blackColor,
-                                              ):Image.asset(Images.otherConfirm,
-                                                height: 30,
-                                                width: 30,
-                                                color: ColorCodes.blackColor,
-                                              ),
-                                              SizedBox(width: 10,),
-
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 1.0,
-                                          ),
-                                          Column(
-                                            children: [
-
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Features.ismultivendor?SizedBox(width: 10,):SizedBox(width: 40,),
-                                                  Text(
-                                                    Features.ismultivendor?addtype:S .of(context).select_delivery_address,//"Select delivery address",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: 16.0,
-                                                        color: ColorCodes.blackColor),
-                                                  ),
-                                                  // Text(
-                                                  //   name,
-                                                  //   style: TextStyle(
-                                                  //     color: ColorCodes.blackColor,
-                                                  //     fontWeight: FontWeight.bold,
-                                                  //     fontSize: 16.0,
-                                                  //   ),
-                                                  // ),
-                                                  Spacer(),
-                                                  GestureDetector(
-                                                      behavior: HitTestBehavior.translucent,
-                                                      onTap: () {
-                                                        _settingModalBottomSheet(context, "change");
-                                                      },
-                                                      child: Container(
-
-                                                        child: Text(
-                                                          S .of(context).change_caps,//"CHANGE",
-                                                          style: TextStyle(
-                                                            //decoration: TextDecoration.underline,
-                                                              decorationStyle:
-                                                              TextDecorationStyle.dashed,
-                                                              color: Features.ismultivendor?ColorCodes.greenColor:ColorCodes.mediumBlueColor,
-                                                              fontSize: 13.0),
-                                                        ),
-                                                      )),
-                                                  SizedBox(
-                                                    width: 10.0,
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(height: 5,),
-                                          Row(
-                                            children: [
-                                              Features.ismultivendor?SizedBox(width: 10,):SizedBox(width: 40,),
-                                              Flexible(
-
-                                                child: Text(
-                                                  address,
-                                                  style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 12.0,
-                                                  ),
-                                                ),
-                                              ),
-
-                                              SizedBox(
-                                                width: 60.0,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-
-                                  ],
-                                ),
-                              ),
-
-                          ],
-                        )
-                        : Column(
-                      children: [
-                        SizedBox(
-                          height:10,
-                        ),
-                        if(Features.ismultivendor)
-                          paymentDetails(),
-                        if(!Features.ismultivendor)
-                        Container(
-                          width: Features.ismultivendor?MediaQuery.of(context).size.width:MediaQuery.of(context).size.width * 0.40,
-                          height: 50,
-                          child: Container(
-                            // color: Theme.of(context).primaryColor,
-                            width: MediaQuery.of(context).size.width,
-                            height: 50,
-                            margin: Features.ismultivendor?EdgeInsets.only(left:10,right:10):EdgeInsets.only(left:0,right:0),
-                            child: Column(children: <Widget>[
-
-                              Center(
-                                child: Text(
-                                  "You are not yet added delivery address, Please add address to continue.",
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ]),
-                          ),
-                        ),
-                        if(!Features.ismultivendor)
-                        SizedBox(
-                          height: 17,
-                        ),
-
-                        if(!Features.ismultivendor)
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.40,
-                          height: 50,
-                          child: FlatButton(
-
-                            color: Theme.of(context).primaryColor,
-                            textColor: Theme.of(context).buttonColor,
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(3.0),
-                            ),
-                            onPressed: ()  {
-                              /*       Navigator.of(context).pushReplacementNamed(
-                                      AddressScreen.routeName,
-                                      arguments: {
-                                        'addresstype': "new",
-                                        'addressid': "",
-                                        'delieveryLocation': "",
-                                        'latitude': "",
-                                        'longitude': "",
-                                        'branch': ""
-                                      })*/
-
-                              if(Vx.isWeb && !ResponsiveLayout.isSmallScreen(context)){
-                              // _dialogforaddress(context);
-                              AddressWeb(context,
-                                addresstype: "new",
-                                addressid: "",
-                                delieveryLocation: "",
-                                latitude: "",
-                                longitude: "",
-                                branch: "",);
-                              }
-                              else {
-                              Navigation(context, name: Routename.AddressScreen, navigatore: NavigatoreTyp.Push,
-                                  qparms: {
-                                    'addresstype': "new",
-                                    'addressid': "",
-                                    'delieveryLocation': "",
-                                    'latitude': "",
-                                    'longitude': "",
-                                    'branch': "",
-                                  });
-                              }
-                            },
-                            child: Text(
-                              S .of(context).add_address,//'Add Address',
-                              style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
-                        if(!Features.ismultivendor)
-                        SizedBox(height: 20,),
-                        // SizedBox(height: 20,),
-                        // ListTile(
-                        //   dense:true,
-                        //   contentPadding: EdgeInsets.only(left: 10.0),
-                        //   leading: Image.asset(Images.request,
-                        //     height: 30,
-                        //     width: 30,
-                        //   ),
-                        //   title: Transform(
-                        //     transform: Matrix4.translationValues(-16, 0.0, 0.0),
-                        //     child: TextField(
-                        //       controller: _message,
-                        //       decoration: InputDecoration.collapsed(
-                        //           hintText: S .of(context).any_request,//"Any request? We promise to pass it on",
-                        //           hintStyle: TextStyle(fontSize: 12.0),
-                        //           //contentPadding: EdgeInsets.all(16),
-                        //           //border: OutlineInputBorder(),
-                        //           fillColor: ColorCodes.lightGreyColor),
-                        //       //minLines: 3,
-                        //       maxLines: 1,
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
-                    )
-                        : Card(
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.all(5.0),
-                            color: Colors.white,
-                            child: Column(
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    SizedBox(
-                                      width: 10.0,
-                                    ),
-                                    Icon(Icons.location_on),
-                                    SizedBox(
-                                      width: 10.0,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          SizedBox(
-                                            height: 15.0,
-                                          ),
-                                          Text(
-                                            S .of(context).your_in_new_location,//"You are in a new location!",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 14.0),
-                                          ),
-                                          SizedBox(
-                                            height: 5.0,
-                                          ),
-                                          Text(
-                                            deliverlocation,
-                                            style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12.0,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 15.0,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    GestureDetector(
-                                      onTap: () {
-                                        _settingModalBottomSheet(
-                                            context, "selectAddress");
-                                      },
-                                      child: Container(
-                                        width: MediaQuery
-                                            .of(context)
-                                            .size
-                                            .width *
-                                            15 /
-                                            100,
-                                        margin: EdgeInsets.only(
-                                            left: 10.0, right: 5.0, bottom: 10.0),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                            BorderRadius.circular(5.0),
-                                            border: Border(
-                                              top: BorderSide(width: 1.0, color: Theme
-                                                  .of(context)
-                                                  .primaryColor,),
-                                              bottom: BorderSide(
-                                                width: 1.0, color: Theme
-                                                  .of(context)
-                                                  .primaryColor,),
-                                              left: BorderSide(width: 1.0, color: Theme
-                                                  .of(context)
-                                                  .primaryColor,),
-                                              right: BorderSide(width: 1.0, color: Theme
-                                                  .of(context)
-                                                  .primaryColor,),
-                                            )),
-                                        height: 40.0,
-                                        child: Center(
-                                          child: Text(
-                                            S .of(context).select_address,//'Select Address',
-                                            style: TextStyle(
-                                              fontSize: 14.0,
-                                              color:
-                                              Theme
-                                                  .of(context)
-                                                  .primaryColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        Navigator.of(context).pop();
-                                        /*       Navigator.of(context).pushNamed(
-                                            AddressScreen.routeName,
-                                            arguments: {
-                                              'addresstype': "new",
-                                              'addressid': "",
-                                              'delieveryLocation': "",
-                                              'latitude': "",
-                                              'longitude': "",
-                                              'branch': ""
-                                            });*/
-                                        if(Vx.isWeb && !ResponsiveLayout.isSmallScreen(context)){
-                                        // _dialogforaddress(context);
-                                        AddressWeb(context,
-                                          addresstype: "new",
-                                          addressid: "",
-                                          delieveryLocation: "",
-                                          latitude: "",
-                                          longitude: "",
-                                          branch: "",);
-                                        }
-                                        else {
-                                          Navigation(context, name: Routename.AddressScreen,
-                                              navigatore: NavigatoreTyp.Push,
-                                              qparms: {
-                                                'addresstype': "new",
-                                                'addressid': "",
-                                                'delieveryLocation': "",
-                                                'latitude': "",
-                                                'longitude': "",
-                                                'branch': "",
-                                              });
-                                        }
-                                      },
-                                      child: Container(
-                                        width: MediaQuery
-                                            .of(context)
-                                            .size
-                                            .width * 15 / 100,
-                                        margin: EdgeInsets.only(
-                                            left: 5.0, right: 10.0, bottom: 10.0),
-                                        decoration: BoxDecoration(
-                                            color: Theme
-                                                .of(context)
-                                                .primaryColor,
-                                            borderRadius:
-                                            BorderRadius.circular(5.0),
-                                            border: Border(
-                                              top: BorderSide(width: 1.0, color:
-                                              Theme
-                                                  .of(context)
-                                                  .primaryColor,
-                                              ),
-                                              bottom: BorderSide(
-                                                width: 1.0,
-                                                color:
-                                                Theme
-                                                    .of(context)
-                                                    .primaryColor,
-                                              ),
-                                              left: BorderSide(
-                                                width: 1.0,
-                                                color:
-                                                Theme
-                                                    .of(context)
-                                                    .primaryColor,
-                                              ),
-                                              right: BorderSide(
-                                                width: 1.0,
-                                                color:
-                                                Theme
-                                                    .of(context)
-                                                    .primaryColor,
-                                              ),
-                                            )),
-                                        height: 40.0,
-                                        child: Center(
-                                          child: Text(
-                                            S .of(context).add_address,//'Add Address',
-                                            style: TextStyle(
-                                              fontSize: 14.0,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: 20,),
-                          SizedBox(height: 20,),
-                          ListTile(
-                            dense:true,
-                            contentPadding: EdgeInsets.only(left: 10.0),
-                            leading: Image.asset(Images.request,
-                              height: 30,
-                              width: 30,
-                            ),
-                            title: Transform(
-                              transform: Matrix4.translationValues(-16, 0.0, 0.0),
-                              child: TextField(
-                                controller: _message,
-                                decoration: InputDecoration.collapsed(
-                                    hintText: S .of(context).any_request,//"Any request? We promise to pass it on",
-                                    hintStyle: TextStyle(fontSize: 12.0),
-                                    //contentPadding: EdgeInsets.all(16),
-                                    //border: OutlineInputBorder(),
-                                    fillColor: ColorCodes.lightGreyColor),
-                                //minLines: 3,
-                                maxLines: 1,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    // !_isChangeAddress
+                    //     ? _checkaddress
+                    //     ? Column(
+                    //       children: [
+                    //         if(!Features.ismultivendor)
+                    //         Container(
+                    //           decoration: BoxDecoration(
+                    //             color: ColorCodes.whiteColor,
+                    //             borderRadius: BorderRadius.circular(5)),
+                    //           padding: EdgeInsets.symmetric(
+                    //               vertical: 15, horizontal: 15),
+                    //           child: Column(
+                    //             children: [
+                    //               Row(
+                    //                 children: <Widget>[
+                    //                   Expanded(
+                    //                     child: Column(
+                    //                       crossAxisAlignment: CrossAxisAlignment.start,
+                    //                       children: <Widget>[
+                    //                         Text(
+                    //                           S .of(context).select_delivery_address,//"Select delivery address",
+                    //                           style: TextStyle(
+                    //                               fontWeight: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? FontWeight.w900 : FontWeight.bold,
+                    //                               fontSize: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? 18 : 16.0,
+                    //                               color: (Vx.isWeb&&!ResponsiveLayout.isSmallScreen(context))? ColorCodes.blackColor : ColorCodes.cartgreenColor),
+                    //                         ),
+                    //                         SizedBox(
+                    //                           height: 10.0,
+                    //                         ),
+                    //                         Column(
+                    //                           children: [
+                    //
+                    //                             Row(
+                    //                               mainAxisAlignment: MainAxisAlignment.start,
+                    //                               crossAxisAlignment: CrossAxisAlignment.start,
+                    //                               children: [
+                    //                                 (addtype == "home")? Image.asset(Images.homeConfirm,
+                    //                                   height: 22,
+                    //                                   width: 22,
+                    //                                   color: ColorCodes.blackColor,
+                    //                                 ):(addtype == "Work")?Image.asset(Images.workConfirm,
+                    //                                   height: 22,
+                    //                                   width: 22,
+                    //                                   color: ColorCodes.blackColor,
+                    //                                 ):Image.asset(Images.otherConfirm,
+                    //                                   height: 25,
+                    //                                   width: 25,
+                    //                                   color: ColorCodes.blackColor,
+                    //                                 ),
+                    //                                 SizedBox(width: 10,),
+                    //                                 Text(
+                    //                                   name,
+                    //                                   style: TextStyle(
+                    //                                     color: ColorCodes.blackColor,
+                    //                                     fontWeight: FontWeight.bold,
+                    //                                     fontSize: 15.0,
+                    //                                   ),
+                    //                                 ),
+                    //                                 Spacer(),
+                    //                                 GestureDetector(
+                    //                                     behavior: HitTestBehavior.translucent,
+                    //                                     onTap: () {
+                    //                                       _settingModalBottomSheet(context, "change");
+                    //                                     },
+                    //                                     child: Container(
+                    //
+                    //                                       child: Text(
+                    //                                         S .of(context).change_caps,//"CHANGE",
+                    //                                         style: TextStyle(
+                    //                                           //decoration: TextDecoration.underline,
+                    //                                             decorationStyle:
+                    //                                             TextDecorationStyle.dashed,
+                    //                                             fontWeight: FontWeight.bold,
+                    //                                             color: ColorCodes.blackColor,
+                    //                                             fontSize: 15.0),
+                    //                                       ),
+                    //                                     )),
+                    //                                 SizedBox(
+                    //                                   width: 10.0,
+                    //                                 ),
+                    //                               ],
+                    //                             ),
+                    //                           ],
+                    //                         ),
+                    //                         SizedBox(height: 5,),
+                    //                         Container(
+                    //                         height: 40,
+                    //                           child: Row(
+                    //                             children: [
+                    //                               SizedBox(width: 40,),
+                    //                               Flexible(
+                    //
+                    //                                 child: Text(
+                    //                                   address,
+                    //                                   maxLines: 2,
+                    //                                   style: TextStyle(
+                    //                                     letterSpacing: 1,
+                    //                                     color: Colors.grey,
+                    //                                     fontSize: 14.0,
+                    //                                   ),
+                    //                                 ),
+                    //                               ),
+                    //
+                    //                               SizedBox(
+                    //                                 width: 60.0,
+                    //                               ),
+                    //                             ],
+                    //                           ),
+                    //                         ),
+                    //                       ],
+                    //                     ),
+                    //                   ),
+                    //
+                    //                 ],
+                    //               ),
+                    //               ((double.parse(_minimumOrderAmountNoraml) > CartCalculations.total) && (double.parse(_minimumOrderAmountPrime) > CartCalculations.totalMember)) ?
+                    //               SizedBox(height: 83,) : SizedBox(height: 43,),
+                    //               ListTile(
+                    //                 dense:true,
+                    //                 contentPadding: EdgeInsets.only(left: 10.0),
+                    //                 leading: Image.asset(Images.request,
+                    //                   height: 30,
+                    //                   width: 30,
+                    //                     color: ColorCodes.blackColor,
+                    //                 ),
+                    //                 title: Transform(
+                    //                   transform: Matrix4.translationValues(-16, 0.0, 0.0),
+                    //                   child: TextField(
+                    //                     controller: _message,
+                    //                     decoration: InputDecoration.collapsed(
+                    //                         hintText: !Features.ismultivendor?S .of(context).any_request:S.of(context).any_instruct_multivendor,//"Any request? We promise to pass it on",
+                    //                         hintStyle: TextStyle(fontSize: 15.0, color: ColorCodes.blackColor, fontWeight: FontWeight.bold , letterSpacing: 1,),
+                    //                         //contentPadding: EdgeInsets.all(16),
+                    //                         //border: OutlineInputBorder(),
+                    //                         fillColor: ColorCodes.lightGreyColor),
+                    //                     //minLines: 3,
+                    //                     maxLines: 1,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //         if(Features.ismultivendor)
+                    //         SizedBox(
+                    //           height:10,
+                    //         ),
+                    //         if(Features.ismultivendor)
+                    //           paymentDetails(),
+                    //         if(Features.ismultivendor)
+                    //           Container(
+                    //             decoration: BoxDecoration(
+                    //                 color: ColorCodes.whiteColor,
+                    //                 boxShadow: [
+                    //                   BoxShadow(
+                    //                     color: ColorCodes.grey.withOpacity(0.3),
+                    //                     spreadRadius: 4,
+                    //                     blurRadius: 5,
+                    //                     offset: Offset(0, 3),
+                    //                   )
+                    //                 ]
+                    //             ),
+                    //             padding: EdgeInsets.symmetric(
+                    //                 vertical: 10, horizontal: 15),
+                    //             child: Row(
+                    //               children: <Widget>[
+                    //                 if(Features.ismultivendor)
+                    //                   Image.asset(Images.addressmultivendor,
+                    //                     height: 35,
+                    //                     width: 30,
+                    //                     color: ColorCodes.greenColor,
+                    //                   ),
+                    //                 Expanded(
+                    //                   child: Column(
+                    //                     crossAxisAlignment: CrossAxisAlignment.start,
+                    //                     children: <Widget>[
+                    //
+                    //                       Row(
+                    //                         children: [
+                    //
+                    //                           if(!Features.ismultivendor)
+                    //                           (addtype == "home")? Image.asset(Images.homeConfirm,
+                    //                             height: 30,
+                    //                             width: 30,
+                    //                             color: ColorCodes.blackColor,
+                    //                           ):(addtype == "Work")?Image.asset(Images.workConfirm,
+                    //                             height: 30,
+                    //                             width: 30,
+                    //                             color: ColorCodes.blackColor,
+                    //                           ):Image.asset(Images.otherConfirm,
+                    //                             height: 30,
+                    //                             width: 30,
+                    //                             color: ColorCodes.blackColor,
+                    //                           ),
+                    //                           SizedBox(width: 10,),
+                    //
+                    //                         ],
+                    //                       ),
+                    //                       SizedBox(
+                    //                         height: 1.0,
+                    //                       ),
+                    //                       Column(
+                    //                         children: [
+                    //
+                    //                           Row(
+                    //                             mainAxisAlignment: MainAxisAlignment.start,
+                    //                             crossAxisAlignment: CrossAxisAlignment.start,
+                    //                             children: [
+                    //                               Features.ismultivendor?SizedBox(width: 10,):SizedBox(width: 40,),
+                    //                               Text(
+                    //                                 Features.ismultivendor?addtype:S .of(context).select_delivery_address,//"Select delivery address",
+                    //                                 style: TextStyle(
+                    //                                     fontWeight: FontWeight.bold,
+                    //                                     fontSize: 16.0,
+                    //                                     color: ColorCodes.blackColor),
+                    //                               ),
+                    //                               // Text(
+                    //                               //   name,
+                    //                               //   style: TextStyle(
+                    //                               //     color: ColorCodes.blackColor,
+                    //                               //     fontWeight: FontWeight.bold,
+                    //                               //     fontSize: 16.0,
+                    //                               //   ),
+                    //                               // ),
+                    //                               Spacer(),
+                    //                               GestureDetector(
+                    //                                   behavior: HitTestBehavior.translucent,
+                    //                                   onTap: () {
+                    //                                     _settingModalBottomSheet(context, "change");
+                    //                                   },
+                    //                                   child: Container(
+                    //
+                    //                                     child: Text(
+                    //                                       S .of(context).change_caps,//"CHANGE",
+                    //                                       style: TextStyle(
+                    //                                         //decoration: TextDecoration.underline,
+                    //                                           decorationStyle:
+                    //                                           TextDecorationStyle.dashed,
+                    //                                           color: Features.ismultivendor?ColorCodes.greenColor:ColorCodes.mediumBlueColor,
+                    //                                           fontSize: 13.0),
+                    //                                     ),
+                    //                                   )),
+                    //                               SizedBox(
+                    //                                 width: 10.0,
+                    //                               ),
+                    //                             ],
+                    //                           ),
+                    //                         ],
+                    //                       ),
+                    //                       SizedBox(height: 5,),
+                    //                       Row(
+                    //                         children: [
+                    //                           Features.ismultivendor?SizedBox(width: 10,):SizedBox(width: 40,),
+                    //                           Flexible(
+                    //
+                    //                             child: Text(
+                    //                               address,
+                    //                               style: TextStyle(
+                    //                                 color: Colors.grey,
+                    //                                 fontSize: 12.0,
+                    //                               ),
+                    //                             ),
+                    //                           ),
+                    //
+                    //                           SizedBox(
+                    //                             width: 60.0,
+                    //                           ),
+                    //                         ],
+                    //                       ),
+                    //                     ],
+                    //                   ),
+                    //                 ),
+                    //
+                    //               ],
+                    //             ),
+                    //           ),
+                    //
+                    //       ],
+                    //     )
+                    //     : Column(
+                    //   children: [
+                    //     SizedBox(
+                    //       height:10,
+                    //     ),
+                    //     if(Features.ismultivendor)
+                    //       paymentDetails(),
+                    //     if(!Features.ismultivendor)
+                    //     Container(
+                    //       width: Features.ismultivendor?MediaQuery.of(context).size.width:MediaQuery.of(context).size.width * 0.40,
+                    //       height: 50,
+                    //       child: Container(
+                    //         // color: Theme.of(context).primaryColor,
+                    //         width: MediaQuery.of(context).size.width,
+                    //         height: 50,
+                    //         margin: Features.ismultivendor?EdgeInsets.only(left:10,right:10):EdgeInsets.only(left:0,right:0),
+                    //         child: Column(children: <Widget>[
+                    //
+                    //           Center(
+                    //             child: Text(
+                    //               "You are not yet added delivery address, Please add address to continue.",
+                    //               style: TextStyle(
+                    //                   fontSize: 14.0,
+                    //                   color: Colors.black,
+                    //                   fontWeight: FontWeight.bold),
+                    //             ),
+                    //           )
+                    //         ]),
+                    //       ),
+                    //     ),
+                    //     if(!Features.ismultivendor)
+                    //     SizedBox(
+                    //       height: 17,
+                    //     ),
+                    //
+                    //     if(!Features.ismultivendor)
+                    //     Container(
+                    //       width: MediaQuery.of(context).size.width * 0.40,
+                    //       height: 50,
+                    //       child: FlatButton(
+                    //
+                    //         color: Theme.of(context).primaryColor,
+                    //         textColor: Theme.of(context).buttonColor,
+                    //         shape: new RoundedRectangleBorder(
+                    //           borderRadius: new BorderRadius.circular(3.0),
+                    //         ),
+                    //         onPressed: ()  {
+                    //           /*       Navigator.of(context).pushReplacementNamed(
+                    //                   AddressScreen.routeName,
+                    //                   arguments: {
+                    //                     'addresstype': "new",
+                    //                     'addressid': "",
+                    //                     'delieveryLocation': "",
+                    //                     'latitude': "",
+                    //                     'longitude': "",
+                    //                     'branch': ""
+                    //                   })*/
+                    //
+                    //           if(Vx.isWeb && !ResponsiveLayout.isSmallScreen(context)){
+                    //           // _dialogforaddress(context);
+                    //           AddressWeb(context,
+                    //             addresstype: "new",
+                    //             addressid: "",
+                    //             delieveryLocation: "",
+                    //             latitude: "",
+                    //             longitude: "",
+                    //             branch: "",);
+                    //           }
+                    //           else {
+                    //           Navigation(context, name: Routename.AddressScreen, navigatore: NavigatoreTyp.Push,
+                    //               qparms: {
+                    //                 'addresstype': "new",
+                    //                 'addressid': "",
+                    //                 'delieveryLocation': "",
+                    //                 'latitude': "",
+                    //                 'longitude': "",
+                    //                 'branch': "",
+                    //               });
+                    //           }
+                    //         },
+                    //         child: Text(
+                    //           S .of(context).add_address,//'Add Address',
+                    //           style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 5.0,
+                    //     ),
+                    //     if(!Features.ismultivendor)
+                    //     SizedBox(height: 20,),
+                    //     // SizedBox(height: 20,),
+                    //     // ListTile(
+                    //     //   dense:true,
+                    //     //   contentPadding: EdgeInsets.only(left: 10.0),
+                    //     //   leading: Image.asset(Images.request,
+                    //     //     height: 30,
+                    //     //     width: 30,
+                    //     //   ),
+                    //     //   title: Transform(
+                    //     //     transform: Matrix4.translationValues(-16, 0.0, 0.0),
+                    //     //     child: TextField(
+                    //     //       controller: _message,
+                    //     //       decoration: InputDecoration.collapsed(
+                    //     //           hintText: S .of(context).any_request,//"Any request? We promise to pass it on",
+                    //     //           hintStyle: TextStyle(fontSize: 12.0),
+                    //     //           //contentPadding: EdgeInsets.all(16),
+                    //     //           //border: OutlineInputBorder(),
+                    //     //           fillColor: ColorCodes.lightGreyColor),
+                    //     //       //minLines: 3,
+                    //     //       maxLines: 1,
+                    //     //     ),
+                    //     //   ),
+                    //     // ),
+                    //   ],
+                    // )
+                    //     : Card(
+                    //   elevation: 5,
+                    //   shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(2),
+                    //   ),
+                    //   child: Column(
+                    //     children: [
+                    //       Container(
+                    //         margin: EdgeInsets.all(5.0),
+                    //         color: Colors.white,
+                    //         child: Column(
+                    //           children: <Widget>[
+                    //             Row(
+                    //               children: <Widget>[
+                    //                 SizedBox(
+                    //                   width: 10.0,
+                    //                 ),
+                    //                 Icon(Icons.location_on),
+                    //                 SizedBox(
+                    //                   width: 10.0,
+                    //                 ),
+                    //                 Expanded(
+                    //                   child: Column(
+                    //                     crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                     children: <Widget>[
+                    //                       SizedBox(
+                    //                         height: 15.0,
+                    //                       ),
+                    //                       Text(
+                    //                         S .of(context).your_in_new_location,//"You are in a new location!",
+                    //                         style: TextStyle(
+                    //                             fontWeight: FontWeight.bold,
+                    //                             fontSize: 14.0),
+                    //                       ),
+                    //                       SizedBox(
+                    //                         height: 5.0,
+                    //                       ),
+                    //                       Text(
+                    //                         deliverlocation,
+                    //                         style: TextStyle(
+                    //                           color: Colors.grey,
+                    //                           fontSize: 12.0,
+                    //                         ),
+                    //                       ),
+                    //                       SizedBox(
+                    //                         height: 15.0,
+                    //                       ),
+                    //                     ],
+                    //                   ),
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //             Row(
+                    //               mainAxisAlignment:
+                    //               MainAxisAlignment.spaceBetween,
+                    //               children: <Widget>[
+                    //                 GestureDetector(
+                    //                   onTap: () {
+                    //                     _settingModalBottomSheet(
+                    //                         context, "selectAddress");
+                    //                   },
+                    //                   child: Container(
+                    //                     width: MediaQuery
+                    //                         .of(context)
+                    //                         .size
+                    //                         .width *
+                    //                         15 /
+                    //                         100,
+                    //                     margin: EdgeInsets.only(
+                    //                         left: 10.0, right: 5.0, bottom: 10.0),
+                    //                     decoration: BoxDecoration(
+                    //                         color: Colors.white,
+                    //                         borderRadius:
+                    //                         BorderRadius.circular(5.0),
+                    //                         border: Border(
+                    //                           top: BorderSide(width: 1.0, color: Theme
+                    //                               .of(context)
+                    //                               .primaryColor,),
+                    //                           bottom: BorderSide(
+                    //                             width: 1.0, color: Theme
+                    //                               .of(context)
+                    //                               .primaryColor,),
+                    //                           left: BorderSide(width: 1.0, color: Theme
+                    //                               .of(context)
+                    //                               .primaryColor,),
+                    //                           right: BorderSide(width: 1.0, color: Theme
+                    //                               .of(context)
+                    //                               .primaryColor,),
+                    //                         )),
+                    //                     height: 40.0,
+                    //                     child: Center(
+                    //                       child: Text(
+                    //                         S .of(context).select_address,//'Select Address',
+                    //                         style: TextStyle(
+                    //                           fontSize: 14.0,
+                    //                           color:
+                    //                           Theme
+                    //                               .of(context)
+                    //                               .primaryColor,
+                    //                         ),
+                    //                       ),
+                    //                     ),
+                    //                   ),
+                    //                 ),
+                    //                 GestureDetector(
+                    //                   onTap: () {
+                    //                     Navigator.of(context).pop();
+                    //                     /*       Navigator.of(context).pushNamed(
+                    //                         AddressScreen.routeName,
+                    //                         arguments: {
+                    //                           'addresstype': "new",
+                    //                           'addressid': "",
+                    //                           'delieveryLocation': "",
+                    //                           'latitude': "",
+                    //                           'longitude': "",
+                    //                           'branch': ""
+                    //                         });*/
+                    //                     if(Vx.isWeb && !ResponsiveLayout.isSmallScreen(context)){
+                    //                     // _dialogforaddress(context);
+                    //                     AddressWeb(context,
+                    //                       addresstype: "new",
+                    //                       addressid: "",
+                    //                       delieveryLocation: "",
+                    //                       latitude: "",
+                    //                       longitude: "",
+                    //                       branch: "",);
+                    //                     }
+                    //                     else {
+                    //                       Navigation(context, name: Routename.AddressScreen,
+                    //                           navigatore: NavigatoreTyp.Push,
+                    //                           qparms: {
+                    //                             'addresstype': "new",
+                    //                             'addressid': "",
+                    //                             'delieveryLocation': "",
+                    //                             'latitude': "",
+                    //                             'longitude': "",
+                    //                             'branch': "",
+                    //                           });
+                    //                     }
+                    //                   },
+                    //                   child: Container(
+                    //                     width: MediaQuery
+                    //                         .of(context)
+                    //                         .size
+                    //                         .width * 15 / 100,
+                    //                     margin: EdgeInsets.only(
+                    //                         left: 5.0, right: 10.0, bottom: 10.0),
+                    //                     decoration: BoxDecoration(
+                    //                         color: Theme
+                    //                             .of(context)
+                    //                             .primaryColor,
+                    //                         borderRadius:
+                    //                         BorderRadius.circular(5.0),
+                    //                         border: Border(
+                    //                           top: BorderSide(width: 1.0, color:
+                    //                           Theme
+                    //                               .of(context)
+                    //                               .primaryColor,
+                    //                           ),
+                    //                           bottom: BorderSide(
+                    //                             width: 1.0,
+                    //                             color:
+                    //                             Theme
+                    //                                 .of(context)
+                    //                                 .primaryColor,
+                    //                           ),
+                    //                           left: BorderSide(
+                    //                             width: 1.0,
+                    //                             color:
+                    //                             Theme
+                    //                                 .of(context)
+                    //                                 .primaryColor,
+                    //                           ),
+                    //                           right: BorderSide(
+                    //                             width: 1.0,
+                    //                             color:
+                    //                             Theme
+                    //                                 .of(context)
+                    //                                 .primaryColor,
+                    //                           ),
+                    //                         )),
+                    //                     height: 40.0,
+                    //                     child: Center(
+                    //                       child: Text(
+                    //                         S .of(context).add_address,//'Add Address',
+                    //                         style: TextStyle(
+                    //                           fontSize: 14.0,
+                    //                           color: Colors.white,
+                    //                         ),
+                    //                       ),
+                    //                     ),
+                    //                   ),
+                    //                 ),
+                    //               ],
+                    //             )
+                    //           ],
+                    //         ),
+                    //       ),
+                    //       SizedBox(height: 20,),
+                    //       SizedBox(height: 20,),
+                    //       ListTile(
+                    //         dense:true,
+                    //         contentPadding: EdgeInsets.only(left: 10.0),
+                    //         leading: Image.asset(Images.request,
+                    //           height: 30,
+                    //           width: 30,
+                    //         ),
+                    //         title: Transform(
+                    //           transform: Matrix4.translationValues(-16, 0.0, 0.0),
+                    //           child: TextField(
+                    //             controller: _message,
+                    //             decoration: InputDecoration.collapsed(
+                    //                 hintText: S .of(context).any_request,//"Any request? We promise to pass it on",
+                    //                 hintStyle: TextStyle(fontSize: 12.0),
+                    //                 //contentPadding: EdgeInsets.all(16),
+                    //                 //border: OutlineInputBorder(),
+                    //                 fillColor: ColorCodes.lightGreyColor),
+                    //             //minLines: 3,
+                    //             maxLines: 1,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                     SizedBox(
                       height: 20.0,
                     ),
@@ -10311,7 +10311,7 @@ if(_initialloading)
     return Column(
       children: [
         VxBuilder(mutations: {SetCartItem},builder: (context, store,state){
-          final snapshot = store.CartItemList;
+          final snapshot = (VxState.store as GroceStore).CartItemList;
           switch(state){
 
             case VxStatus.none:

@@ -1039,6 +1039,7 @@ class _PaymentScreenState extends State<PaymentScreen> with Navigations {
         body: resBody,
       );
       debugPrint("Orderfood...response" + resBody.toString());
+      print("Url....."+url.toString());
       final responseJson = json.decode(utf8.decode(response.bodyBytes));
       debugPrint("Orderfood...responseJson" + responseJson.toString());
       responsejson = responseJson['status'].toString();

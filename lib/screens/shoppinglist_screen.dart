@@ -883,7 +883,7 @@ class _ShoppinglistScreenState extends State<ShoppinglistScreen> with Navigation
                           height: 35,
                           margin: EdgeInsets.only(left: 80, right: 80),
                           child: RaisedButton(
-                            color: ColorCodes.mediumBlueColor,
+                            color: ColorCodes.primaryColor,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5.0),
                             ),

@@ -1220,7 +1220,7 @@ debugPrint("add primary...."+{
                         Center(
                           child: DottedBorder(
                             padding: EdgeInsets.zero,
-                            color: ColorCodes.mediumBlueColor,
+                            color: ColorCodes.primaryColor,
                             //strokeWidth: 1,
                             dashPattern: [3.0],
                             child: Container(
@@ -1268,7 +1268,7 @@ debugPrint("add primary...."+{
 
                             Text(S.of(context).call_us,//" Call Us",
                               /* S.of(context).id,*///'Apply referral Code',
-                              style: TextStyle(fontSize: 14, color: ColorCodes.lightblue),
+                              style: TextStyle(fontSize: 14, color: ColorCodes.primaryColor),
                             ),
 
                           ],

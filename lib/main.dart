@@ -43,7 +43,13 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
+  await Firebase.initializeApp(
+     options: const FirebaseOptions(
+        apiKey: "iJOWGqWXORfChQW6LG_21eEv21efQ",
+        appId: "1:277236241016:web:f05bdca0baba44fb63538d",
+        messagingSenderId: "277236241016",
+        projectId: "grocbay-c0de4"));
   const Color black = Color(0xff2b6838);
   // Vx.setPathUrlStrategy();
   await PrefUtils.init();
