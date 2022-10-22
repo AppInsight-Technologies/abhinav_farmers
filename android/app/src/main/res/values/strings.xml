@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="default_notification_channel_id">com.abhinav.store.default</string>
-    <string name="app_name">GrocBay</string>
-    <string name="facebook_app_id">667020454316770</string>
-    <string name="fb_login_protocol_scheme">fb1667020454316770</string>
+    <string name="app_name">Abhinav Kart</string>
+    <string name="facebook_app_id">1927193347469146</string>
+    <string name="fb_login_protocol_scheme">fb1927193347469146</string>
     <string name="freshchat_file_provider_authority">com.abhinav.store.provider</string>
 </resources>
