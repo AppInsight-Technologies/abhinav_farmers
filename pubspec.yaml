@@ -101,8 +101,7 @@ dependencies:
     #ffi: ^1.0.0
     ffi:
     eventify:
-#    cashfree_pg: ^2.0.10+30
-#    cashfree_pg: 2.0.12+32
+    cashfree_pg: ^2.0.10+30
     flutter_facebook_login_web:
     bloc: #^7.0.0
     flutter_login_facebook: ^1.2.0
