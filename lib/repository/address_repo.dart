@@ -46,6 +46,8 @@ print("location: $resp");
   }
  Future<CurrentLocation> getcurentlocation(double latitude,double longitude,{address,area})async{
    Api api = Api();
+   print("CheckLocation:..."+api.Geturl(/*IConstants.isEnterprise &&*/ Features.ismultivendor?"v3/check-location?lat=$latitude&long=$longitude&branch=${PrefUtils.prefs!.getString("branch")}&ref=${IConstants.refIdForMultiVendor.toString()}&branchtype=${IConstants.branchtype.toString()}":
+   "check-location?lat=$latitude&long=$longitude&branch=${PrefUtils.prefs!.getString("branch")}&ref=${IConstants.refIdForMultiVendor.toString()}&branchtype=${IConstants.branchtype.toString()}").toString());
     final location =json.decode(await api.Geturl(/*IConstants.isEnterprise &&*/ Features.ismultivendor?"v3/check-location?lat=$latitude&long=$longitude&branch=${PrefUtils.prefs!.getString("branch")}&ref=${IConstants.refIdForMultiVendor.toString()}&branchtype=${IConstants.branchtype.toString()}":
     "check-location?lat=$latitude&long=$longitude&branch=${PrefUtils.prefs!.getString("branch")}&ref=${IConstants.refIdForMultiVendor.toString()}&branchtype=${IConstants.branchtype.toString()}",isv2: false));
     print("status rep: ${location["status"]}");

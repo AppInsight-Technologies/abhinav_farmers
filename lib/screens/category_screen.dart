@@ -639,6 +639,7 @@ class _CategoryScreenState extends State<CategoryScreen> with Navigations{
                   )
               ),
             ),
+            SizedBox(height: 70,)
           ],
         );
       });
