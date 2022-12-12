@@ -10569,7 +10569,7 @@ if(_initialloading)
     return Column(
       children: [
         VxBuilder(mutations: {SetCartItem},builder: (context, store,state){
-          final snapshot = store.CartItemList;
+          final snapshot = (VxState.store as GroceStore).CartItemList;
           switch(state){
 
             case VxStatus.none:

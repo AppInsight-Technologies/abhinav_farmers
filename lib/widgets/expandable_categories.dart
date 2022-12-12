@@ -397,8 +397,8 @@ class _ExpansionCategoryState extends State<ExpansionCategory> with Navigations 
                                                       color: ResponsiveLayout
                                                           .isSmallScreen(
                                                           context)
-                                                          ?/*Theme.of(context)
-                                                          .primaryColor*/ColorCodes.blackColor:ColorCodes.blackColor),
+                                                          ?Theme.of(context)
+                                                          .primaryColor:ColorCodes.primaryColor),
                                                 ),
                                                 (widget
                                                                 .homedata

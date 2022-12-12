@@ -3,6 +3,7 @@
     <string name="default_notification_channel_id">com.abhinav.store.default</string>
     <string name="app_name">Abhinav Kart</string>
     <string name="facebook_app_id">1927193347469146</string>
+    <string name="facebook_client_token">737b0a9bd695f6fba1ab78144b3000c2</string>
     <string name="fb_login_protocol_scheme">fb1927193347469146</string>
     <string name="freshchat_file_provider_authority">com.abhinav.store.provider</string>
 </resources>

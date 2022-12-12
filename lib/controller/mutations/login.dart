@@ -41,8 +41,15 @@ class UserAppAuth {
         _auth.facebookLogin((value){
           print("fb error log..."+value.messege.toString());
           if(value.status){
-            if(!value.data.newuser)
+            print("fb error log...ssss"+value.data.newuser.toString());
+            if(!value.data.newuser){
               onSucsess(value.data,null);
+            }
+            else{
+              onSucsess(value.data,null);
+              print("fb new user data..."+value.data["email"].toString());
+            }
+
           }else{
             onerror(value.messege);
           }

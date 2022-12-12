@@ -747,7 +747,7 @@ class _HomeScreenState extends State<HomeScreen> with Navigations{
                 style: TextStyle(
                     fontSize: ResponsiveLayout.isSmallScreen(context)?18.0:24.0,
                     fontWeight: FontWeight.w900,
-                    color: /*Theme.of(context).primaryColor*/Colors.black),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
           ),
@@ -2071,7 +2071,7 @@ class _HomeScreenState extends State<HomeScreen> with Navigations{
                                             fontSize: ResponsiveLayout.isSmallScreen(context)?18.0:24.0,
                                             fontWeight: FontWeight.w900,
                                           color:  (Vx.isWeb && !ResponsiveLayout.isSmallScreen(context))?
-                                          ColorCodes.blackColor:ColorCodes.black,),
+                                          ColorCodes.blackColor:ColorCodes.primaryColor,),
                                       ) : SizedBox.shrink(),
                                     ),
                                     Container(

@@ -63,6 +63,7 @@ class Features {
   static bool btobModule = false;
   static bool sellerModule = false;
   static bool isfacebookappevent = true;
+  static bool facebooklogin = true;
   static String logo = "";
 
   static bool isWebTrail = false;
