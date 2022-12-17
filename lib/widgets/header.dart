@@ -1837,9 +1837,16 @@ class _HeaderState extends State<Header> with Navigations {
 
   void launchWhatsApp() async {
     String phone = /*"+918618320591"*/IConstants.secondaryMobile;
+    String newPhone = "";
     String url() {
       if (Platform.isIOS) {
-        return "whatsapp://wa.me/$phone/?text=${Uri.parse('I want to order Grocery')}";
+        if(phone.contains("+91")){
+          newPhone = phone.replaceAll('\\s+','').toString();
+          newPhone = newPhone.substring(1).removeAllWhiteSpace();
+          print("Phone nuymber...."+newPhone.removeAllWhiteSpace().toString());
+        }
+        return "whatsapp://wa.me/$newPhone/?text=${Uri.parse('I want to order Grocery')}";
+        //return "whatsapp://wa.me/$phone/?text=${Uri.parse('I want to order Grocery')}";
       } else {
         return "whatsapp://send?phone=$phone&text=${Uri.parse('I want to order Grocery')}";
         const url = "https://wa.me/?text=YourTextHere";

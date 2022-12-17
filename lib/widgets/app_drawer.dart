@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import "package:http/http.dart" as http;
 import '../constants/IConstants.dart';
 import '../assets/images.dart';
+import '../models/newmodle/customerremove.dart';
 import '../screens/membership_screen.dart';
 import '../utils/ResponsiveLayout.dart';
 import '../utils/prefUtils.dart';
@@ -36,6 +37,139 @@ class _AppDrawerState extends State<AppDrawer> with Navigations {
   @override
   void initState() {
     super.initState();
+  }
+
+  dialogForFreemembership (){
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Are you sure you want to delete account?",//"You are eligible for 3 month free membership",
+            style: TextStyle(
+              color: Colors.black, fontSize: 18,fontWeight: FontWeight.bold,
+            ), ),
+          content:
+          Container(
+            height:80,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Once deleted, you would lose access to this account along with the saved details on " +IConstants.APP_NAME,//"You are eligible for 3 month free membership",
+                  style: TextStyle(
+                    color: Colors.black, fontSize: 14,
+                  ), ),
+                //    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: ColorCodes.primaryColor),),
+              ],
+            ),
+
+
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                "Cancel",
+                style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: ColorCodes.greenColor),
+              ),
+              onPressed: () async {
+                // Navigator.of(context).pushReplacementNamed(MySubscriptionScreen.routeName);
+                Navigator.of(context).pop();
+              },
+
+            ),
+            FlatButton(
+              child: Text(
+                "Proceed",
+                style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold,color: ColorCodes.greenColor),
+              ),
+              onPressed: () async {
+                print("apikey......"+PrefUtils.prefs!.getString("apikey").toString());
+                // Navigator.of(context).pushReplacementNamed(MySubscriptionScreen.routeName);
+                customerremoveApi.getCustomerremove(ParamBodyData(user: PrefUtils.prefs!.getString("apikey"))).then((value) {
+                  if( value.status == 200){
+                    Navigator.of(context).pop();
+                    //Navigation(context, navigatore: NavigatoreTyp.homenav);
+                    String branch = PrefUtils.prefs!.getString("branch")!;
+                    String tokenId =
+                    PrefUtils.prefs!.getString('tokenid')!;
+                    String _ftokenId =
+                    PrefUtils.prefs!.getString("ftokenid")!;
+                    String _mapFetch = "null";
+                    String _isDelivering = "false";
+                    String defaultLocation = "null";
+                    String deliverylocation = "null";
+                    String _latitude = "null";
+                    String _longitude = "null";
+                    bool? deliverystatus =
+                    PrefUtils.prefs!.getBool("deliverystatus");
+                    String currentdeliverylocation =
+                        IConstants.currentdeliverylocation.value;
+                    if (PrefUtils.prefs!.containsKey("ismapfetch")) {
+                      _mapFetch =
+                      PrefUtils.prefs!.getString("ismapfetch")!;
+                    }
+                    if (PrefUtils.prefs!.containsKey("isdelivering")) {
+                      _isDelivering =
+                      PrefUtils.prefs!.getString("isdelivering")!;
+                    }
+                    if (PrefUtils.prefs!.containsKey("defaultlocation")) {
+                      defaultLocation =
+                      PrefUtils.prefs!.getString("defaultlocation")!;
+                    }
+                    if (PrefUtils.prefs!
+                        .containsKey("deliverylocation")) {
+                      deliverylocation =
+                      PrefUtils.prefs!.getString("deliverylocation")!;
+                    }
+                    if (PrefUtils.prefs!.containsKey("latitude")) {
+                      _latitude = PrefUtils.prefs!.getString("latitude")!;
+                    }
+
+                    if (PrefUtils.prefs!.containsKey("longitude")) {
+                      _longitude =
+                      PrefUtils.prefs!.getString("longitude")!;
+                    }
+                    PrefUtils.prefs!.clear();
+                    PrefUtils.prefs!.setBool('introduction', true);
+                    // PrefUtils.prefs!.setString('country_code', countryCode);
+                    PrefUtils.prefs!
+                        .setBool('deliverystatus', deliverystatus!);
+                    PrefUtils.prefs!.setString("branch", branch);
+                    PrefUtils.prefs!.setString("tokenid", tokenId);
+                    PrefUtils.prefs!.setString("ftokenid", _ftokenId);
+                    PrefUtils.prefs!.setString("ismapfetch", _mapFetch);
+                    PrefUtils.prefs!
+                        .setString("isdelivering", _isDelivering);
+                    PrefUtils.prefs!
+                        .setString("defaultlocation", defaultLocation);
+                    PrefUtils.prefs!
+                        .setString("deliverylocation", deliverylocation);
+                    PrefUtils.prefs!.setString("longitude", _longitude);
+                    PrefUtils.prefs!.setString("latitude", _latitude);
+                    IConstants.currentdeliverylocation.value =
+                        currentdeliverylocation;
+                    Navigator.of(context).pop();
+                    /* Navigator.pushNamedAndRemoveUntil(context, SignupSelectionScreen.routeName, (route) => false,
+                        arguments: {
+                          "prev": "signupSelectionScreen",
+                        });*/
+                    Navigation(context,
+                        name: Routename.SignUpScreen,
+                        navigatore: NavigatoreTyp.homenav,
+                        qparms: {
+                          "prev": "signupSelectionScreen",
+                        });
+
+                  }
+                });
+              },
+
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void launchWhatsapp({required number,required message})async{
@@ -806,6 +940,30 @@ class _AppDrawerState extends State<AppDrawer> with Navigations {
                 ],
               ),
             ),
+            SizedBox(height: 15),
+            PrefUtils.prefs!.containsKey("apikey")
+                ?
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                dialogForFreemembership();
+              },
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: 25.0,
+                  ),
+                  Text(
+                    /* !Vx.isAndroid && !Vx.isWeb
+                        ? S .of(context).rate_us
+                        :*/ "Delete Account",
+                    style: TextStyle(
+                        fontSize: 15, color: ColorCodes.blackColor),
+                  ),
+                  Spacer(),
+                ],
+              ),
+            ):SizedBox.shrink(),
             SizedBox(height: 15),
             if (! !PrefUtils.prefs!.containsKey("apikey"))
               GestureDetector(

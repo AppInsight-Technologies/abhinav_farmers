@@ -2219,8 +2219,7 @@ class _HomeScreenState extends State<HomeScreen> with Navigations{
                                       Expanded(
                                         child: GestureDetector(
                                           onTap: () {
-                                            launch("tel: " +
-                                                IConstants.primaryMobile);
+                                            launch("tel://"+IConstants.primaryMobile);
                                           },
                                             child: Container(
                                               margin: EdgeInsets.only(left: 7),
